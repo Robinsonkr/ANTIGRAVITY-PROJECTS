@@ -34,7 +34,7 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('show');
             // Stagger children animations if it's a grid
-            if (entry.target.classList.contains('skills-grid') || 
+            if (entry.target.classList.contains('skills-grid') ||
                 entry.target.classList.contains('projects-grid') ||
                 entry.target.classList.contains('achievements-grid') ||
                 entry.target.classList.contains('education-grid')) {
@@ -89,3 +89,32 @@ if (scrollIndicator) {
         }
     });
 }
+
+// Contact Form Submission & Popup
+const contactForm = document.getElementById('contact-form');
+const confirmationPopup = document.getElementById('confirmation-popup');
+const closePopupBtn = document.getElementById('close-popup');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', () => {
+        // We use a small timeout to let the iframe handle the request
+        setTimeout(() => {
+            confirmationPopup.classList.add('active');
+            contactForm.reset();
+        }, 500);
+    });
+}
+
+if (closePopupBtn) {
+    closePopupBtn.addEventListener('click', () => {
+        confirmationPopup.classList.remove('active');
+    });
+}
+
+// Close popup on outside click
+window.addEventListener('click', (e) => {
+    if (e.target === confirmationPopup) {
+        confirmationPopup.classList.remove('active');
+    }
+});
+
