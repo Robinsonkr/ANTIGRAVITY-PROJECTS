@@ -1,0 +1,11 @@
+# System Files
+.DS_Store
+Thumbs.db
+
+# Idea / Editor Files
+.vscode/
+.idea/
+
+# Agent Files (Internal state)
+brain/
+*.md (only if not wanted in repo, but task/walkthrough are useful)

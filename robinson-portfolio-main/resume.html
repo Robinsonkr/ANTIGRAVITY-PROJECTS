@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Robinson KR</title>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .resume-container {
+            max-width: 800px;
+            margin: 100px auto;
+            background: #1e293b;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px -15px rgba(15, 23, 42, 0.7);
+        }
+
+        .resume-header {
+            border-bottom: 1px solid var(--text-secondary);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .resume-name {
+            font-size: 32px;
+            color: var(--text-primary);
+        }
+
+        .resume-role {
+            color: var(--accent-color);
+            font-family: var(--font-mono);
+            font-size: 18px;
+        }
+
+        .resume-section {
+            margin-bottom: 30px;
+        }
+
+        .resume-section h3 {
+            color: var(--text-primary);
+            font-size: 20px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .resume-item {
+            margin-bottom: 15px;
+        }
+
+        .resume-item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .resume-item-title {
+            color: var(--text-primary);
+            font-weight: bold;
+        }
+
+        .resume-btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .resume-container {
+                background: white;
+                box-shadow: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .resume-name,
+            .resume-section h3,
+            .resume-item-title {
+                color: black;
+            }
+
+            .resume-role {
+                color: #0056b3;
+            }
+
+            .btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resume-container">
+        <div class="resume-header">
+            <h1 class="resume-name">Robinson KR</h1>
+            <p class="resume-role">Senior Backend Developer</p>
+            <p style="color: var(--text-secondary); margin-top: 10px;">
+                Alappuzha, India | +91-7736731743 | robinsonkrobert@gmail.com
+            </p>
+            <div class="social-links" style="margin-top: 15px;">
+                <a href="https://github.com/robinsonkr" target="_blank" class="social-icon"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/robinson-kr" target="_blank" class="social-icon"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/robinsonkr/" target="_blank" class="social-icon"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="mailto:robinsonkrobert@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <div class="resume-section">
+            <h3>Professional Summary</h3>
+            <p style="color: var(--text-secondary);">
+                Detail-oriented and results-driven Software Developer with 5+ years of IT experience specializing
+                in Python-based backend development. Proven expertise in designing, developing, testing, and
+                maintaining scalable enterprise applications across multiple domains. Strong experience with REST APIs,
+                automation, cloud services, and Agile methodologies.
+            </p>
+        </div>
+
+        <div class="resume-section">
+            <h3>Work Experience</h3>
+
+            <div class="resume-item">
+                <div class="resume-item-header">
+                    <span class="resume-item-title">LogicPlum Private Ltd - Senior Back End Developer</span>
+                    <span>06/2023 – Present</span>
+                </div>
+                <ul class="job-details">
+                    <li>Developed and maintained scalable RESTful APIs to support core business workflows.</li>
+                    <li>Produced structured technical documentation to improve maintainability.</li>
+                    <li>Improved application performance and code quality through regular reviews.</li>
+                </ul>
+            </div>
+
+            <div class="resume-item">
+                <div class="resume-item-header">
+                    <span class="resume-item-title">Saasvaap Techies - Software Developer</span>
+                    <span>03/2021 – 02/2023</span>
+                </div>
+                <ul class="job-details">
+                    <li>External Consultant for Volvo Group (Jiffy.ai).</li>
+                    <li>Automated Journal Voucher (JV) processing workflows with Outlook/SAP integration.</li>
+                    <li>Implemented validation checks and approval workflows.</li>
+                </ul>
+            </div>
+
+            <div class="resume-item">
+                <div class="resume-item-header">
+                    <span class="resume-item-title">Ylem Infotech - Software Engineer</span>
+                    <span>04/2019 – 04/2020</span>
+                </div>
+                <ul class="job-details">
+                    <li>Developed web applications using Python and Django.</li>
+                    <li>Assisted in application enhancements and bug fixing.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="resume-section">
+            <h3>Skills</h3>
+            <p style="color: var(--text-secondary);">
+                <i class="fas fa-code" style="width: 25px; color: var(--accent-color);"></i> <strong>Languages:</strong>
+                Python, JavaScript<br>
+                <i class="fas fa-globe" style="width: 25px; color: var(--accent-color);"></i> <strong>Web:</strong>
+                HTML, CSS, Bootstrap, Django RF<br>
+                <i class="fas fa-database" style="width: 25px; color: var(--accent-color);"></i>
+                <strong>Databases:</strong> MySQL, Postgres<br>
+                <i class="fas fa-cloud" style="width: 25px; color: var(--accent-color);"></i> <strong>Cloud &
+                    DevOps:</strong> Azure, Docker, Terraform, Ansible<br>
+                <i class="fas fa-robot" style="width: 25px; color: var(--accent-color);"></i>
+                <strong>Automation:</strong> Jiffy.ai RPA
+            </p>
+        </div>
+
+        <div class="resume-section">
+            <h3>Education</h3>
+            <p style="color: var(--text-secondary);">
+                <strong>Bachelor of Computer Applications (BCA)</strong><br>
+                Mahatma Gandhi University, Kottayam (2015 – 2018)
+            </p>
+        </div>
+
+        <div class="resume-btn-container">
+            <button onclick="window.print()" class="btn">Print / Save as PDF</button>
+            <a href="index.html" class="btn" style="margin-left: 10px;">Back to Portfolio</a>
+        </div>
+    </div>
+</body>
+
+</html>
