@@ -1,3 +1,25 @@
+// Theme Toggle
+const themeToggle = document.getElementById('theme-toggle');
+if (themeToggle) {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    updateToggleIcon(currentTheme);
+
+    themeToggle.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateToggleIcon(next);
+    });
+}
+
+function updateToggleIcon(theme) {
+    const icon = themeToggle ? themeToggle.querySelector('i') : null;
+    if (icon) {
+        icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+    }
+}
+
 // Mobile Navigation Toggle
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");

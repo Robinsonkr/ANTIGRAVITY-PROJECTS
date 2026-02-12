@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Apply saved theme before paint to prevent flash -->
+    <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');</script>
 </head>
 
 <body>
@@ -33,6 +35,9 @@
             <li><a href="#contact">Contact</a></li>
             <li><a href="resume.html" class="btn" style="padding: 8px 16px; margin-left: 10px;">Resume</a></li>
         </ul>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+        </button>
         <div class="hamburger">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -52,9 +57,9 @@
             <h1 class="hero-name">Robinson KR.</h1>
             <h2 class="hero-subtitle typing-cursor">I build scalable backend systems.</h2>
             <p class="hero-description">
-                I'm a software developer specializing in Python-based backend development, RPA Automation, and Cloud
-                DevOps.
-                Currently, I'm focused on building accessible, human-centered products at LogicPlum.
+                Senior Back-End Developer specializing in Python, Django REST Framework, RPA automation, and Cloud
+                DevOps. Focused on building scalable APIs and efficient backend systems, with a strong passion for
+                continuous learning and delivering impactful software solutions.
             </p>
             <div style="display: flex; gap: 20px; align-items: center; margin-top: 30px;">
                 <a href="#contact" class="btn" style="font-size: 16px; padding: 18px 32px;">Get In Touch</a>
@@ -147,6 +152,20 @@
                     </div>
                     <div class="skill-names">Jiffy.ai RPA</div>
                 </div>
+                <div class="skill-card">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <span class="skill-category">Azure Cloud</span>
+                        <i class="fas fa-server" style="font-size: 20px; color: var(--accent-color);"></i>
+                    </div>
+                    <div class="skill-names">VMs, Resource Groups, Docker, Terraform, Ansible</div>
+                </div>
+                <div class="skill-card">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <span class="skill-category">Version Control & Tools</span>
+                        <i class="fas fa-code-branch" style="font-size: 20px; color: var(--accent-color);"></i>
+                    </div>
+                    <div class="skill-names">Git, GitHub, Swagger, Postman</div>
+                </div>
             </div>
         </section>
 
@@ -156,7 +175,9 @@
             <div class="timeline">
                 <div class="job">
                     <div class="job-header">
-                        <h3 class="job-title">Senior Back End Developer <span class="company">@ LogicPlum</span></h3>
+                        <h3 class="job-title">Senior Back End Developer <a
+                                href="https://www.linkedin.com/company/logicplum/" target="_blank" rel="noopener"><span
+                                    class="company">@ LogicPlum</span></a></h3>
                         <span class="job-duration">June 2023 – Present</span>
                     </div>
                     <ul class="job-details">
@@ -171,7 +192,8 @@
 
                 <div class="job">
                     <div class="job-header">
-                        <h3 class="job-title">Software Developer <span class="company">@ Saasvaap Techies</span></h3>
+                        <h3 class="job-title">Software Developer <a href="https://www.linkedin.com/company/saasvaap-inc"
+                                target="_blank" rel="noopener"><span class="company">@ Saasvaap Techies</span></a></h3>
                         <span class="job-duration">March 2021 – Feb 2023</span>
                     </div>
                     <ul class="job-details">
@@ -186,7 +208,9 @@
 
                 <div class="job">
                     <div class="job-header">
-                        <h3 class="job-title">Software Engineer <span class="company">@ Ylem Infotech</span></h3>
+                        <h3 class="job-title">Software Engineer <a
+                                href="https://www.linkedin.com/company/ylem-infotech-pvt-ltd" target="_blank"
+                                rel="noopener"><span class="company">@ Ylem Infotech</span></a></h3>
                         <span class="job-duration">April 2019 – April 2020</span>
                     </div>
                     <ul class="job-details">
@@ -264,73 +288,47 @@
 
         <!-- Achievements Section -->
         <section id="achievements" class="section container">
-            <h2 class="heading">Achievements & Awards</h2>
+            <h2 class="heading">Certifications</h2>
             <div class="achievements-grid">
                 <div class="achievement-card">
-                    <div class="achievement-icon"><i class="fas fa-award"></i></div>
-                    <h3 class="achievement-title">Spot Award for Excellence</h3>
-                    <p class="achievement-issuer">LogicPlum</p>
-                    <p class="achievement-description">Recognized for outstanding contribution in optimizing backend API
-                        performance and delivering critical features ahead of schedule.</p>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon"><i class="fas fa-star"></i></div>
-                    <h3 class="achievement-title">Top Performer - Automation</h3>
-                    <p class="achievement-issuer">Volvo Project (External)</p>
-                    <p class="achievement-description">Commended for successfully automating 90%+ of Journal Voucher
-                        processing workflows, significantly reducing manual effort.</p>
-                </div>
-                <div class="achievement-card">
                     <div class="achievement-icon"><i class="fas fa-certificate"></i></div>
-                    <h3 class="achievement-title">Clean Code Certification</h3>
-                    <p class="achievement-issuer">Internal Technical Training</p>
-                    <p class="achievement-description">Awarded for demonstrating exceptional standards in code
-                        maintainability and software architecture patterns.</p>
+                    <h3 class="achievement-title">Diploma of Completion – Meet the UiPath Platform</h3>
+                    <p class="achievement-issuer"><a href="https://www.uipath.com/" target="_blank"
+                            rel="noopener">UiPath</a></p>
+                    <p class="achievement-description">May 2023</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-robot"></i></div>
+                    <h3 class="achievement-title">Jiffy.ai AUTOMATE Level II – Robotic Process Automation Training</h3>
+                    <p class="achievement-issuer"><a href="https://jiffy.ai/" target="_blank" rel="noopener">Jiffy.ai
+                            Academy</a></p>
+                    <p class="achievement-description">Jul 2021</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-code"></i></div>
+                    <h3 class="achievement-title">Full Stack Web Development (Python & Django)</h3>
+                    <p class="achievement-issuer"><a href="https://www.mashupstack.com/" target="_blank"
+                            rel="noopener">Mashup Stack, Trivandrum</a></p>
+                    <p class="achievement-description">Mar 2019</p>
                 </div>
             </div>
         </section>
 
-        <!-- Education & Certifications Section -->
+        <!-- Education Section -->
         <section id="education" class="section container">
-            <h2 class="heading">Education & Certifications</h2>
-            <div class="education-grid">
-                <div class="education-content">
-                    <h3 class="sub-heading">Education</h3>
-                    <div class="education-item">
-                        <div class="edu-header">
-                            <h4 class="edu-degree">Bachelor of Computer Applications (BCA)</h4>
-                            <span class="edu-duration">2015 – 2018</span>
-                        </div>
-                        <p class="edu-school">Mahatma Gandhi University, Kottayam</p>
-                        <p class="edu-details">Focused on Software Engineering, Data Structures, and Web Development.
-                        </p>
+            <h2 class="heading">Education</h2>
+            <div class="education-content">
+                <h3 class="sub-heading">Education</h3>
+                <div class="education-item">
+                    <div class="edu-header">
+                        <h4 class="edu-degree">Bachelor of Computer Applications (BCA)</h4>
+                        <span class="edu-duration">2015 – 2018</span>
                     </div>
+                    <p class="edu-school">Mahatma Gandhi University, Kottayam</p>
+                    <p class="edu-details">Focused on Software Engineering, Data Structures, and Web Development.
+                    </p>
                 </div>
-
-                <div class="certifications-content">
-                    <h3 class="sub-heading">Certifications</h3>
-                    <div class="cert-item">
-                        <div class="cert-header">
-                            <h4 class="cert-name">Microsoft Certified: Azure Developer Associate</h4>
-                            <i class="fab fa-microsoft cert-icon"></i>
-                        </div>
-                        <p class="cert-issuer">Microsoft</p>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-header">
-                            <h4 class="cert-name">Python for Data Science & AI</h4>
-                            <i class="fab fa-python cert-icon"></i>
-                        </div>
-                        <p class="cert-issuer">Coursera / IBM</p>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-header">
-                            <h4 class="cert-name">Jiffy.ai RPA Professional</h4>
-                            <i class="fas fa-robot cert-icon"></i>
-                        </div>
-                        <p class="cert-issuer">Jiffy.ai Academy</p>
-                    </div>
-                </div>
+            </div>
             </div>
         </section>
 
