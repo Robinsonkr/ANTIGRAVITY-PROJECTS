@@ -70,6 +70,22 @@
             margin-top: 30px;
         }
 
+        @media screen and (max-width: 768px) {
+            .resume-container {
+                margin: 60px 15px;
+                padding: 30px 20px;
+            }
+
+            .resume-name {
+                font-size: 28px;
+            }
+
+            .resume-item-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+
         @media print {
             body {
                 background: white;
@@ -205,16 +221,22 @@
     <!-- AI Chatbot Widget -->
     <div class="chat-widget">
         <div class="chat-bubble" id="chat-bubble">
-            <i class="fas fa-comment-dots"></i>
+            <img src="images/profile_avatar.png" alt="Chat Avatar">
         </div>
         <div class="chat-window" id="chat-window">
             <div class="chat-header">
-                <h3>Chat with Robinson's AI</h3>
+                <div class="header-info">
+                    <img src="images/profile_avatar.png" alt="Robinson" class="header-avatar">
+                    <h3>Chat with Robinson's AI</h3>
+                </div>
                 <span class="close-chat" id="close-chat">&times;</span>
             </div>
             <div class="chat-messages" id="chat-messages">
-                <div class="message bot-message">
-                    Hi! I'm Robinson's virtual assistant. Ask me anything about his projects, skills, or experience!
+                <div class="message-wrapper bot-wrapper">
+                    <img src="images/profile_avatar.png" class="message-avatar" alt="AI Avatar">
+                    <div class="message bot-message">
+                        Hi! I'm Robinson's virtual assistant. Ask me anything about his projects, skills, or experience!
+                    </div>
                 </div>
             </div>
             <form class="chat-input-container" id="chat-form">

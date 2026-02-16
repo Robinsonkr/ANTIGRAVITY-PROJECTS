@@ -56,28 +56,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function addMessage(text, sender) {
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('message-wrapper', `${sender}-wrapper`);
+
+        if (sender === 'bot') {
+            const avatar = document.createElement('img');
+            avatar.src = 'images/profile_avatar.png';
+            avatar.classList.add('message-avatar');
+            avatar.alt = 'AI Avatar';
+            wrapper.appendChild(avatar);
+        }
+
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message', `${sender}-message`);
         messageDiv.textContent = text;
-        chatMessages.appendChild(messageDiv);
+
+        wrapper.appendChild(messageDiv);
+        chatMessages.appendChild(wrapper);
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
     function addTypingIndicator() {
-        const typingDiv = document.createElement('div');
         const id = 'typing-' + Date.now();
-        typingDiv.id = id;
+        const wrapper = document.createElement('div');
+        wrapper.id = id;
+        wrapper.classList.add('message-wrapper', 'bot-wrapper');
+
+        const avatar = document.createElement('img');
+        avatar.src = 'images/profile_avatar.png';
+        avatar.classList.add('message-avatar');
+        avatar.alt = 'AI Avatar';
+        wrapper.appendChild(avatar);
+
+        const typingDiv = document.createElement('div');
         typingDiv.classList.add('message', 'bot-message');
         typingDiv.textContent = '...';
-        chatMessages.appendChild(typingDiv);
+
+        wrapper.appendChild(typingDiv);
+        chatMessages.appendChild(wrapper);
         chatMessages.scrollTop = chatMessages.scrollHeight;
         return id;
     }
 
     function removeTypingIndicator(id) {
-        const typingDiv = document.getElementById(id);
-        if (typingDiv) {
-            typingDiv.remove();
+        const typingWrapper = document.getElementById(id);
+        if (typingWrapper) {
+            typingWrapper.remove();
         }
     }
 });

@@ -103,8 +103,8 @@
 
                 <div class="about-image">
                     <div class="about-image-wrapper">
-                        <i class="fas fa-user-tie"
-                            style="font-size: 8rem; color: var(--accent-color); opacity: 0.8;"></i>
+                        <img src="images/profile_avatar.png" alt="Robinson KR"
+                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
                     </div>
                 </div>
             </div>
@@ -392,16 +392,22 @@
     <!-- AI Chatbot Widget -->
     <div class="chat-widget">
         <div class="chat-bubble" id="chat-bubble">
-            <i class="fas fa-comment-dots"></i>
+            <img src="images/profile_avatar.png" alt="Chat Avatar">
         </div>
         <div class="chat-window" id="chat-window">
             <div class="chat-header">
-                <h3>Chat with Robinson's AI</h3>
+                <div class="header-info">
+                    <img src="images/profile_avatar.png" alt="Robinson" class="header-avatar">
+                    <h3>Chat with Robinson's AI</h3>
+                </div>
                 <span class="close-chat" id="close-chat">&times;</span>
             </div>
             <div class="chat-messages" id="chat-messages">
-                <div class="message bot-message">
-                    Hi! I'm Robinson's virtual assistant. Ask me anything about his projects, skills, or experience!
+                <div class="message-wrapper bot-wrapper">
+                    <img src="images/profile_avatar.png" class="message-avatar" alt="AI Avatar">
+                    <div class="message bot-message">
+                        Hi! I'm Robinson's virtual assistant. Ask me anything about his projects, skills, or experience!
+                    </div>
                 </div>
             </div>
             <form class="chat-input-container" id="chat-form">
