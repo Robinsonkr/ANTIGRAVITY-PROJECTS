@@ -8,6 +8,7 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chat.css">
     <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');</script>
     <style>
         .resume-container {
@@ -200,7 +201,33 @@
             <a href="index.html" class="btn" style="margin-left: 10px;">Back to Portfolio</a>
         </div>
     </div>
+
+    <!-- AI Chatbot Widget -->
+    <div class="chat-widget">
+        <div class="chat-bubble" id="chat-bubble">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        <div class="chat-window" id="chat-window">
+            <div class="chat-header">
+                <h3>Chat with Robinson's AI</h3>
+                <span class="close-chat" id="close-chat">&times;</span>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot-message">
+                    Hi! I'm Robinson's virtual assistant. Ask me anything about his projects, skills, or experience!
+                </div>
+            </div>
+            <form class="chat-input-container" id="chat-form">
+                <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off">
+                <button type="submit" class="send-btn" title="Send Message" aria-label="Send Message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
     <script src="js/main.js"></script>
+    <script src="js/chat.js"></script>
 </body>
 
 </html>

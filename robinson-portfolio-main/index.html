@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chat.css">
     <!-- Apply saved theme before paint to prevent flash -->
     <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');</script>
 </head>
@@ -316,7 +317,7 @@
 
         <!-- Education Section -->
         <section id="education" class="section container">
-            <h2 class="heading">Education</h2>
+            <!-- <h2 class="heading">Education</h2> -->
             <div class="education-content">
                 <h3 class="sub-heading">Education</h3>
                 <div class="education-item">
@@ -325,7 +326,7 @@
                         <span class="edu-duration">2015 – 2018</span>
                     </div>
                     <p class="edu-school">Mahatma Gandhi University, Kottayam</p>
-                    <p class="edu-details">Focused on Software Engineering, Data Structures, and Web Development.
+                    <p class="edu-details">fr. porukara cmi college of advanced studies champakulam alappuzha
                     </p>
                 </div>
             </div>
@@ -388,8 +389,33 @@
         <p>Built by Antigravity</p>
     </footer>
 
+    <!-- AI Chatbot Widget -->
+    <div class="chat-widget">
+        <div class="chat-bubble" id="chat-bubble">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        <div class="chat-window" id="chat-window">
+            <div class="chat-header">
+                <h3>Chat with Robinson's AI</h3>
+                <span class="close-chat" id="close-chat">&times;</span>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot-message">
+                    Hi! I'm Robinson's virtual assistant. Ask me anything about his projects, skills, or experience!
+                </div>
+            </div>
+            <form class="chat-input-container" id="chat-form">
+                <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off">
+                <button type="submit" class="send-btn" title="Send Message" aria-label="Send Message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="js/main.js"></script>
+    <script src="js/chat.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,164 @@
+PORTFOLIO CONTENT:
+Robinson KR | Software Developer
+{ }
+</>
+#
+Hi, my name is
+Robinson KR.
+I build scalable backend systems.
+Senior Back-End Developer specializing in Python, Django REST Framework, RPA automation, and Cloud
+DevOps. Focused on building scalable APIs and efficient backend systems, with a strong passion for
+continuous learning and delivering impactful software solutions.
+Get In Touch
+About Me
+Detail-oriented and results-driven Software Developer with 5+ years of IT experience
+specializing in Python-based backend development.
+I have proven expertise in designing, developing, testing, and maintaining scalable enterprise
+applications across multiple domains.
+My background includes strong experience with REST APIs, automation, cloud services, and Agile
+methodologies.
+I am constantly seeking to contribute technical expertise to build reliable, high-performance
+systems while continuing professional growth.
+Technical Skills
+Programming Languages
+Python, JavaScript
+Web Technologies
+HTML, CSS, Bootstrap
+Frameworks
+Django REST Framework
+Databases
+MySQL, Postgres
+Cloud & DevOps
+Azure, Docker, Terraform, Ansible
+Automation
+Jiffy.ai RPA
+Azure Cloud
+VMs, Resource Groups, Docker, Terraform, Ansible
+Version Control & Tools
+Git, GitHub, Swagger, Postman
+Where I've Worked
+Senior Back End Developer
+@ LogicPlum
+June 2023 – Present
+Developed and maintained scalable RESTful APIs to support core business workflows.
+Produced structured technical documentation to improve maintainability and knowledge
+transfer.
+Improved application performance, code quality, and reliability through regular code
+reviews.
+Collaborated actively in Agile/Scrum ceremonies to support continuous improvement.
+Software Developer
+@ Saasvaap Techies
+March 2021 – Feb 2023
+Worked as an External Consultant for Volvo Group, delivering enterprise automation solutions
+using Python and Jiffy.ai.
+Automated Journal Voucher (JV) processing workflows integrated with Outlook and SAP systems.
+Implemented validation checks, approval workflows, and automated document handling.
+Monitored automated processes and provided production support.
+Software Engineer
+@ Ylem Infotech
+April 2019 – April 2020
+Developed web applications using Python and Django with a focus on modular, reusable
+components.
+Assisted in application enhancements, bug fixing, and performance improvements.
+Participated in feature analysis and User Acceptance Testing (UAT) activities.
+Some Things I've Built
+📂
+AutoCloud
+A fully automated DevOps platform to generate backend services and Angular frontend starter
+projects.
+Automated Azure cloud infrastructure provisioning using Terraform and Ansible.
+Python
+Terraform
+Ansible
+Azure
+Rest
+📂
+Winnow - Hiring Portal
+A recruitment platform focused on physician hiring. Built REST APIs and backend services using
+Python and Django.
+Integrated MySQL, Celery, and Swagger.
+Django
+MySQL
+Celery
+Swagger
+📂
+Journal Vouchers Automation
+Automated JV request processing received via Outlook mailbox.
+Implemented SAP JV creation, approval workflows, document attachment, and automated responses.
+Python
+Jiffy.ai
+Outlook API
+SAP
+Certifications
+Diploma of Completion – Meet the UiPath Platform
+UiPath
+May 2023
+Jiffy.ai AUTOMATE Level II – Robotic Process Automation Training
+Jiffy.ai
+Academy
+Jul 2021
+Full Stack Web Development (Python & Django)
+Mashup Stack, Trivandrum
+Mar 2019
+Education
+Bachelor of Computer Applications (BCA)
+2015 – 2018
+Mahatma Gandhi University, Kottayam
+fr. porukara cmi college of advanced studies champakulam alappuzha
+Get In Touch
+Send Message
+📧 robinsonkrobert@gmail.com
+📱+91-7736731743
+📍 Alappuzha, India
+Message Sent!
+Thank you for reaching out. I'll get back to you as soon as possible.
+Close
+Chat with Robinson's AI
+×
+Hi! I'm Robinson's virtual assistant. Ask me anything about his projects, skills, or experience!
+
+RESUME CONTENT:
+Resume - Robinson KR
+Robinson KR
+Senior Backend Developer
+Alappuzha, India | +91-7736731743 | robinsonkrobert@gmail.com
+Professional Summary
+Detail-oriented and results-driven Software Developer with 5+ years of IT experience specializing
+in Python-based backend development. Proven expertise in designing, developing, testing, and
+maintaining scalable enterprise applications across multiple domains. Strong experience with REST APIs,
+automation, cloud services, and Agile methodologies.
+Work Experience
+LogicPlum Private Ltd - Senior Back End Developer
+06/2023 – Present
+Developed and maintained scalable RESTful APIs to support core business workflows.
+Produced structured technical documentation to improve maintainability.
+Improved application performance and code quality through regular reviews.
+Saasvaap Techies - Software Developer
+03/2021 – 02/2023
+External Consultant for Volvo Group (Jiffy.ai).
+Automated Journal Voucher (JV) processing workflows with Outlook/SAP integration.
+Implemented validation checks and approval workflows.
+Ylem Infotech - Software Engineer
+04/2019 – 04/2020
+Developed web applications using Python and Django.
+Assisted in application enhancements and bug fixing.
+Skills
+Languages:
+Python, JavaScript
+Web:
+HTML, CSS, Bootstrap, Django RF
+Databases:
+MySQL, Postgres
+Cloud &
+DevOps:
+Azure, Docker, Terraform, Ansible
+Automation:
+Jiffy.ai RPA
+Education
+Bachelor of Computer Applications (BCA)
+Mahatma Gandhi University, Kottayam (2015 – 2018)
+Print / Save as PDF
+Back to Portfolio
+Chat with Robinson's AI
+×
+Hi! I'm Robinson's virtual assistant. Ask me anything about his projects, skills, or experience!
