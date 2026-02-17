@@ -54,7 +54,9 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('show');
+            entry.target.classList.add('active');
+            entry.target.classList.add('show'); // Keep compatibility with existing classes
+
             // Stagger children animations if it's a grid
             if (entry.target.classList.contains('skills-grid') ||
                 entry.target.classList.contains('projects-grid') ||
@@ -63,6 +65,7 @@ const observer = new IntersectionObserver((entries) => {
                 const children = entry.target.children;
                 Array.from(children).forEach((child, index) => {
                     child.style.transitionDelay = `${index * 100}ms`;
+                    child.classList.add('active');
                     child.classList.add('show');
                 });
             }
@@ -70,10 +73,27 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-const hiddenElements = document.querySelectorAll('.section, .hero, .project-card, .skill-card, .achievement-card, .education-item, .cert-item');
-hiddenElements.forEach((el) => {
-    el.classList.add('hidden');
+// Initialize reveal elements
+const revealElements = document.querySelectorAll('.reveal, .section, .hero, .project-card, .skill-card, .achievement-card, .education-item, .cert-item');
+revealElements.forEach((el) => {
+    if (!el.classList.contains('reveal')) {
+        el.classList.add('hidden');
+    }
     observer.observe(el);
+});
+
+// Scroll Progress Bar
+const progressBar = document.createElement('div');
+progressBar.className = 'scroll-progress-container';
+progressBar.innerHTML = '<div class="scroll-progress-bar" id="scroll-bar"></div>';
+document.body.prepend(progressBar);
+
+window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    const bar = document.getElementById('scroll-bar');
+    if (bar) bar.style.width = scrolled + "%";
 });
 
 // Typing Effect
