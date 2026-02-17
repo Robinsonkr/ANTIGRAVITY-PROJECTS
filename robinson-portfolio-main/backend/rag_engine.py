@@ -18,8 +18,8 @@ import google.generativeai as genai
 # Configuration
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
-if not GOOGLE_API_KEY or "AIzaSyCQkw5" in GOOGLE_API_KEY:
-    print("WARNING: GOOGLE_API_KEY not found or appears to be a placeholder.")
+if not GOOGLE_API_KEY:
+    print("WARNING: GOOGLE_API_KEY not found. Please check your .env file.")
 else:
     # Set it globally in the environment and the SDK
     os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
