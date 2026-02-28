@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Robinson KR</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="js/admin.js" defer></script>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">RKR<span style="color: var(--text-primary)">.</span>ADMIN</div>
+        <a href="index.html" class="btn"><i class="fas fa-home"></i>&nbsp; Back to Site</a>
+    </nav>
+
+    <main class="admin-container">
+        <!-- Login Form -->
+        <div id="login-section" class="admin-card reveal reveal-up active">
+            <div class="admin-header">
+                <i class="fas fa-lock admin-icon"></i>
+                <h2>Admin Login</h2>
+                <p>Restricted access for Robinson KR only.</p>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username"><i class="fas fa-user"></i> Username</label>
+                    <input type="text" id="username" name="username" required autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-key"></i> Password</label>
+                    <input type="password" id="password" name="password" required autocomplete="current-password">
+                </div>
+                <div id="login-error" class="error-msg" style="display: none;">Invalid username or password</div>
+                <button type="submit" class="btn submit-btn" id="login-btn">
+                    <span>Authenticate</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+
+        <!-- Dashboard Map (Hidden by Default) -->
+        <div id="dashboard-section" class="admin-card dashboard-ui" style="display: none;">
+            <div class="admin-header">
+                <i class="fas fa-shield-alt admin-icon" style="color: #10b981;"></i>
+                <h2>Dashboard</h2>
+                <p id="welcome-msg">Welcome back, Admin.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-robot stat-icon"></i>
+                    <div class="stat-value" id="stat-queries">--</div>
+                    <div class="stat-label">Chatbot Queries</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-eye stat-icon"></i>
+                    <div class="stat-value" id="stat-views">--</div>
+                    <div class="stat-label">Portfolio Views</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-envelope stat-icon"></i>
+                    <div class="stat-value" id="stat-messages">--</div>
+                    <div class="stat-label">New Messages</div>
+                </div>
+            </div>
+
+            <div class="dashboard-actions">
+                <button class="btn btn-outline" onclick="alert('Retraining FAISS index...')">
+                    <i class="fas fa-sync-alt"></i> Retrain AI Model
+                </button>
+                <button class="btn btn-danger" id="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Secure Logout
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Apply theme early
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+    </script>
+</body>
+
+</html>

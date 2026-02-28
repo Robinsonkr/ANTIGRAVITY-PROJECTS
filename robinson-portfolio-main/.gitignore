@@ -20,6 +20,5 @@ backend/faiss_index/
 
 # Docker
 docker-compose.override.yml
-*
 *.db
 *.sqlite3
