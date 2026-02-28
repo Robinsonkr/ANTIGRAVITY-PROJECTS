@@ -2,8 +2,11 @@ import os
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-# Use an absolute path or relative to the backend folder
-DATABASE_URL = "sqlite:///./sqlite.db"
+import tempfile
+
+# Use system temp directory for SQLite database (solves Docker non-root permission issues)
+db_path = os.path.join(tempfile.gettempdir(), "sqlite.db")
+DATABASE_URL = f"sqlite:///{db_path}"
 
 # Setting check_same_thread=False is needed for SQLite and FastAPI
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
