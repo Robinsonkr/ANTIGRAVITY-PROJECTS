@@ -343,9 +343,9 @@ robinson-portfolio-main/
 
 | Concern | Current State | Production Recommendation |
 |---|---|---|
-| **CORS** | `allow_origins=["*"]` | Restrict to portfolio domain |
-| **Chat URL** | Hardcoded `localhost:8000` | Use env-based URL or reverse proxy |
-| **HTTPS** | Not configured | Use Nginx + Let's Encrypt |
-| **Backend hosting** | Local Uvicorn | Deploy to Azure App Service, Railway, or Render |
-| **Frontend hosting** | Local files | GitHub Pages, Vercel, or Netlify |
+| **CORS** | `allow_origins=["https://robinsonkr.vercel.app", ...]` | Restricted to portfolio domain ✅ |
+| **Chat URL** | Dynamic detection based on hostname | Production points to Render URL ✅ |
+| **HTTPS** | Enabled by default on Vercel/Render | Handled by platform ✅ |
+| **Backend hosting** | Deployed to **Render** | `https://antigravity-projects-dn90.onrender.com/` ✅ |
+| **Frontend hosting** | Deployed to **Vercel** | `https://robinsonkr.vercel.app/` ✅ |
 | **API Key** | `.env` file | Use secret manager in production |

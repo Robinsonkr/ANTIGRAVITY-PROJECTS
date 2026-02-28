@@ -11,7 +11,7 @@ app = FastAPI(title="Robinson's Portfolio AI Chatbot API")
 # Enable CORS for the frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with your domain
+    allow_origins=["https://robinsonkr.vercel.app", "http://localhost:3000", "http://127.0.0.1:3000"],  # Restrict to Vercel production domain + localhost
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

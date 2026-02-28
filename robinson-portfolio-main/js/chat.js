@@ -33,7 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const typingId = addTypingIndicator();
 
         try {
-            const response = await fetch('http://localhost:8000/chat', {
+            const backendUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+                ? 'http://localhost:8000/chat'
+                : 'https://antigravity-projects-dn90.onrender.com/chat';
+
+            const response = await fetch(backendUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
