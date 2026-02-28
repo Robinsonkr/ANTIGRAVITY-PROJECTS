@@ -1,4 +1,5 @@
 import os
+import tempfile
 from dotenv import load_dotenv
 
 # Load environment variables from the .env file in the same directory as this script
@@ -27,7 +28,7 @@ else:
     print(f"Loaded API Key: {GOOGLE_API_KEY[:5]}...{GOOGLE_API_KEY[-5:]}")
 
 KNOWLEDGE_BASE_FILE = os.path.join(os.path.dirname(__file__), "knowledge_base.txt")
-INDEX_PATH = os.path.join(os.path.dirname(__file__), "faiss_index")
+INDEX_PATH = os.path.join(tempfile.gettempdir(), "faiss_index")
 
 
 def initialize_rag():
