@@ -67,6 +67,15 @@ document.addEventListener('DOMContentLoaded', () => {
         dashboardSection.style.display = 'none';
         loginSection.style.display = 'block';
         loginForm.reset();
+
+        // Reset the login button state
+        const submitBtn = document.getElementById('login-btn');
+        submitBtn.innerHTML = `
+            <span>Authenticate</span>
+            <i class="fas fa-arrow-right"></i>
+        `;
+        submitBtn.disabled = false;
+        errorMsg.style.display = 'none';
     });
 
     async function verifyTokenAndLoadDashboard(token) {
