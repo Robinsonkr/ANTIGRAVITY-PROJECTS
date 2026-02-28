@@ -1,9 +1,11 @@
 fastapi
 uvicorn
-langchain
-langchain-google-genai
-langchain-community
+langchain==0.2.16
+langchain-google-genai==1.0.10
+langchain-community==0.2.16
+langchain-text-splitters==0.2.4
+langchain-core==0.2.41
 faiss-cpu
 python-dotenv
 beautifulsoup4
-pydantic==1.10.12
+pydantic>=2.0

@@ -1,7 +1,10 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-from .rag_engine import get_answer
+try:
+    from .rag_engine import get_answer
+except ImportError:
+    from rag_engine import get_answer
 
 app = FastAPI(title="Robinson's Portfolio AI Chatbot API")
 
