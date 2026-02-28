@@ -1,17 +1,18 @@
 import os
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, HTTPException, Depends, status
+from fastapi import FastAPI, HTTPException, Depends, status, Request
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
-from datetime import timedelta
+from datetime import timedelta, datetime
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 try:
-    from .rag_engine import get_answer
-    from . import database, auth
+    from backend.rag_engine import get_answer
+    from backend import database, auth
 except ImportError:
     from rag_engine import get_answer
     import database
+    import auth
     import auth
 
 # Initialize DB and create default admin
@@ -100,6 +101,49 @@ async def get_admin_dashboard(current_user: database.User = Depends(auth.get_cur
         }
     }
 
+
+@app.post("/track_visit")
+async def track_visit(request: Request, db: Session = Depends(database.get_db)):
+    try:
+        data = await request.json()
+        page_visited = data.get("page", "Unknown")
+        
+        # Get IP address (works locally and behind Vercel/Render proxies)
+        ip_address = request.headers.get("x-forwarded-for")
+        if ip_address:
+            ip_address = ip_address.split(",")[0]
+        else:
+            ip_address = request.client.host if request.client else "Unknown"
+            
+        user_agent = request.headers.get("user-agent", "Unknown")
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        
+        new_visitor = database.Visitor(
+            ip_address=ip_address,
+            user_agent=user_agent,
+            page_visited=page_visited,
+            timestamp=timestamp
+        )
+        db.add(new_visitor)
+        db.commit()
+        return {"status": "success"}
+    except Exception as e:
+        print(f"Error tracking visit: {e}")
+        return {"status": "error"}
+
+
+@app.get("/admin/visitors")
+async def get_admin_visitors(current_user: database.User = Depends(auth.get_current_user), db: Session = Depends(database.get_db)):
+    # Protected route to fetch visitor tracking data
+    visitors = db.query(database.Visitor).order_by(database.Visitor.id.desc()).limit(100).all()
+    
+    # Calculate some quick stats for the dashboard too
+    total_views = db.query(database.Visitor).count()
+    
+    return {
+        "visitors": visitors,
+        "total_views": total_views
+    }
 
 if __name__ == "__main__":
     import uvicorn

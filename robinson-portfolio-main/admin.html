@@ -76,6 +76,27 @@
                 </div>
             </div>
 
+            <div class="visitors-section">
+                <h3><i class="fas fa-users"></i> Recent Visitors</h3>
+                <div class="table-responsive">
+                    <table class="visitors-table">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>IP Address</th>
+                                <th>Page Visited</th>
+                                <th>Browser / OS</th>
+                            </tr>
+                        </thead>
+                        <tbody id="visitors-tbody">
+                            <tr>
+                                <td colspan="4" style="text-align: center;">Loading visitor data...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
             <div class="dashboard-actions">
                 <button class="btn btn-outline" onclick="alert('Retraining FAISS index...')">
                     <i class="fas fa-sync-alt"></i> Retrain AI Model

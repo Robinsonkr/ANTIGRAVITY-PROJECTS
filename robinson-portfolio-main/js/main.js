@@ -160,3 +160,28 @@ window.addEventListener('click', (e) => {
     }
 });
 
+// Analytics: Track Visitor
+document.addEventListener('DOMContentLoaded', () => {
+    // Fire and forget tracking call
+    setTimeout(async () => {
+        try {
+            const backendUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+                ? 'http://localhost:8000/track_visit'
+                : 'https://antigravity-projects-dn90.onrender.com/track_visit';
+
+            const pagePath = window.location.pathname || "index.html";
+
+            await fetch(backendUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ page: pagePath })
+            });
+        } catch (e) {
+            // Silently fail if tracking is blocked by adblockers, etc.
+            console.debug("Tracking ping blocked or failed.");
+        }
+    }, 1000); // 1 second delay to avoid delaying initial render
+});
+

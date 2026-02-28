@@ -16,10 +16,18 @@ Base = declarative_base()
 
 class User(Base):
     __tablename__ = "users"
-
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String, unique=True, index=True)
     hashed_password = Column(String)
+
+class Visitor(Base):
+    __tablename__ = "visitors"
+
+    id = Column(Integer, primary_key=True, index=True)
+    ip_address = Column(String)
+    user_agent = Column(String)
+    page_visited = Column(String)
+    timestamp = Column(String)
 
 def get_db():
     db = SessionLocal()
