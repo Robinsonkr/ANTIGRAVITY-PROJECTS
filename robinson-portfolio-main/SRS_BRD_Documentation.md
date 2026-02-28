@@ -23,6 +23,7 @@
 | BO-2 | Enable visitors to interact with an AI chatbot that answers questions about skills, projects, and experience |
 | BO-3 | Provide a streamlined contact mechanism for potential employers/clients |
 | BO-4 | Present a downloadable/printable resume in a visually consistent format |
+| BO-5 | Publish personal insights and industry opinions via a custom Blog section |
 
 ## 3. Target Audience
 
@@ -52,21 +53,20 @@
 
 ## 1. System Overview
 
-The system is a **two-tier architecture** with an added authentication layer:
+The system is a **two-tier architecture**:
 
 ```mermaid
 graph LR
     A["Browser (Frontend)"] -->|HTTP/REST| B["FastAPI Backend"]
     B -->|Embeddings| C["Google Gemini API"]
     B -->|Vector Search| D["FAISS Index"]
-    B -->|Auth & Analytics Logs| F[("SQLite Database")]
     A -->|Form POST| E["Google Forms"]
 ```
 
 | Layer | Technology |
 |---|---|
 | **Frontend** | HTML5, CSS3, Vanilla JavaScript |
-| **Backend** | Python, FastAPI, Uvicorn, SQLite, bcrypt, JWT |
+| **Backend** | Python, FastAPI, Uvicorn |
 | **AI/ML** | LangChain, Google Gemini (LLM + Embeddings), FAISS |
 | **Contact** | Google Forms (serverless) |
 
@@ -84,7 +84,8 @@ graph LR
 | FR-1.4 | Show project cards (AutoCloud, Winnow, JV Automation) | High |
 | FR-1.5 | Display certifications (UiPath, Jiffy.ai, Mashup Stack) | Medium |
 | FR-1.6 | Show education details | Medium |
-| FR-1.7 | Provide "Get In Touch" contact form | High |
+| FR-1.7 | Display a "Thoughts & Articles" Blog section with visually appealing image cards | High |
+| FR-1.8 | Provide "Get In Touch" contact form | High |
 
 ### FR-2: Resume Page (`resume.html`)
 
@@ -144,26 +145,6 @@ graph LR
 | FR-7.5 | Smooth scrolling for anchor navigation | Medium |
 | FR-7.6 | Floating code-symbol background elements | Low |
 
-### FR-8: Admin Dashboard Authentication
-
-| ID | Requirement | Priority |
-|---|---|---|
-| FR-8.1 | Provide a hidden `/admin.html` login portal | High |
-| FR-8.2 | Authenticate admin user against a local SQLite database | High |
-| FR-8.3 | Issue temporary JSON Web Tokens (JWT) for session management | High |
-| FR-8.4 | Provide protected endpoints (`/admin/dashboard_data`, `/admin/visitors`) accessible only via Bearer token | High |
-| FR-8.5 | Prevent unauthorized access to portfolio analytics and AI retrain functions | High |
-
-### FR-9: Site Visitor Analytics
-
-| ID | Requirement | Priority |
-|---|---|---|
-| FR-9.1 | Automatically trigger a background `POST` to `/track_visit` on page load | High |
-| FR-9.2 | Capture visitor IP address (handling proxy/Vercel headers) | High |
-| FR-9.3 | Parse and store User-Agent strings (Browser & OS details) | Medium |
-| FR-9.4 | Log the specific page visited (`/index.html` or `/resume.html`) | High |
-| FR-9.5 | Display tracked visits securely within the Admin UI table | High |
-
 ---
 
 ## 3. Non-Functional Requirements
@@ -220,8 +201,6 @@ graph LR
 ```mermaid
 graph TD
     A["User Opens Website"] --> B["Theme Applied from localStorage"]
-    A --> A1["POST /track_visit (Background)"]
-    A1 --> A2["Backend logs IP & Agent to SQLite"]
     B --> C["Hero Section + Typing Animation"]
     C --> D{"User Scrolls?"}
     D -->|Yes| E["Sections Reveal with Animations"]
@@ -298,20 +277,18 @@ graph LR
 |---|---|---|
 | **HTML5** | Semantic page structure | — |
 | **CSS3** | Styling, animations, CSS variables for theming | Custom (`style.css`, `chat.css`) |
-| **Vanilla JavaScript** | Interactivity, DOM manipulation, API calls | ES6+ (`main.js`, `chat.js`, `admin.js`) |
+| **Vanilla JavaScript** | Interactivity, DOM manipulation, API calls | ES6+ (`main.js`, `chat.js`) |
 | **Google Fonts** | Typography — Inter (UI) + Fira Code (mono) | CDN |
 | **Font Awesome 6.4** | Icons | CDN |
 
-## Backend & Authentication
+## Backend
 
 | Technology | Purpose | Version |
 |---|---|---|
 | **Python** | Backend runtime | 3.x |
 | **FastAPI** | REST API framework | Latest |
 | **Uvicorn** | ASGI server | Latest |
-| **SQLite / SQLAlchemy** | Local database & ORM for user storage | Latest |
-| **python-jose / bcrypt** | JWT token generation & password hashing | Latest |
-| **Pydantic** | Request/response validation | >=2.0 |
+| **Pydantic** | Request/response validation | 1.10.12 |
 
 ## AI / ML Stack
 
@@ -341,21 +318,16 @@ graph LR
 robinson-portfolio-main/
 ├── index.html              # Main portfolio page
 ├── resume.html             # Printable resume page
-├── admin.html              # Private admin login/dashboard page
 ├── css/
-│   ├── style.css           # Main stylesheet (theming, layout, mobile queries)
-│   ├── chat.css            # Chatbot widget styles
-│   └── admin.css           # Admin dashboard UI styles
+│   ├── style.css           # Main stylesheet (~20KB, theming, layout, animations)
+│   └── chat.css            # Chatbot widget styles
 ├── js/
-│   ├── main.js             # Theme toggle, nav, animations, contact form
-│   ├── chat.js             # Chatbot open/close, message API client
-│   └── admin.js            # JWT session management & protected API requests
+│   ├── main.js             # Theme toggle, nav, animations, scroll, contact form
+│   └── chat.js             # Chatbot open/close, message send/receive
 ├── images/
 │   └── profile_avatar.png  # Profile picture
 ├── backend/
-│   ├── main.py             # FastAPI app with /chat, /token, and /admin endpoints
-│   ├── auth.py             # JWT generation and bcrypt password hashing
-│   ├── database.py         # SQLAlchemy config & User model table
+│   ├── main.py             # FastAPI app with /chat endpoint
 │   ├── rag_engine.py       # RAG pipeline: load → chunk → embed → retrieve → answer
 │   ├── extract_data.py     # HTML-to-text extraction for knowledge base
 │   ├── knowledge_base.txt  # Extracted portfolio text (auto-generated)
@@ -373,9 +345,9 @@ robinson-portfolio-main/
 
 | Concern | Current State | Production Recommendation |
 |---|---|---|
-| **CORS** | `allow_origins=["https://robinsonkr.vercel.app", ...]` | Restricted to portfolio domain ✅ |
-| **Chat URL** | Dynamic detection based on hostname | Production points to Render URL ✅ |
-| **HTTPS** | Enabled by default on Vercel/Render | Handled by platform ✅ |
-| **Backend hosting** | Deployed to **Render** | `https://antigravity-projects-dn90.onrender.com/` ✅ |
-| **Frontend hosting** | Deployed to **Vercel** | `https://robinsonkr.vercel.app/` ✅ |
+| **CORS** | `allow_origins=["*"]` | Restrict to portfolio domain |
+| **Chat URL** | Hardcoded `localhost:8000` | Use env-based URL or reverse proxy |
+| **HTTPS** | Not configured | Use Nginx + Let's Encrypt |
+| **Backend hosting** | Local Uvicorn | Deploy to Azure App Service, Railway, or Render |
+| **Frontend hosting** | Local files | GitHub Pages, Vercel, or Netlify |
 | **API Key** | `.env` file | Use secret manager in production |
