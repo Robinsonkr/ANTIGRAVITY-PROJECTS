@@ -59,7 +59,7 @@ graph LR
     A["Browser (Frontend)"] -->|HTTP/REST| B["FastAPI Backend"]
     B -->|Embeddings| C["Google Gemini API"]
     B -->|Vector Search| D["FAISS Index"]
-    B -->|Verify/Auth| F[("SQLite Database")]
+    B -->|Auth & Analytics Logs| F[("SQLite Database")]
     A -->|Form POST| E["Google Forms"]
 ```
 
@@ -151,8 +151,18 @@ graph LR
 | FR-8.1 | Provide a hidden `/admin.html` login portal | High |
 | FR-8.2 | Authenticate admin user against a local SQLite database | High |
 | FR-8.3 | Issue temporary JSON Web Tokens (JWT) for session management | High |
-| FR-8.4 | Provide protected endpoints (`/admin/dashboard_data`) accessible only via Bearer token | High |
+| FR-8.4 | Provide protected endpoints (`/admin/dashboard_data`, `/admin/visitors`) accessible only via Bearer token | High |
 | FR-8.5 | Prevent unauthorized access to portfolio analytics and AI retrain functions | High |
+
+### FR-9: Site Visitor Analytics
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-9.1 | Automatically trigger a background `POST` to `/track_visit` on page load | High |
+| FR-9.2 | Capture visitor IP address (handling proxy/Vercel headers) | High |
+| FR-9.3 | Parse and store User-Agent strings (Browser & OS details) | Medium |
+| FR-9.4 | Log the specific page visited (`/index.html` or `/resume.html`) | High |
+| FR-9.5 | Display tracked visits securely within the Admin UI table | High |
 
 ---
 
@@ -210,6 +220,8 @@ graph LR
 ```mermaid
 graph TD
     A["User Opens Website"] --> B["Theme Applied from localStorage"]
+    A --> A1["POST /track_visit (Background)"]
+    A1 --> A2["Backend logs IP & Agent to SQLite"]
     B --> C["Hero Section + Typing Animation"]
     C --> D{"User Scrolls?"}
     D -->|Yes| E["Sections Reveal with Animations"]
