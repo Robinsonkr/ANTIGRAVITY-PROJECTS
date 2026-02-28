@@ -1,0 +1,10 @@
+[flake8]
+max-line-length = 120
+exclude =
+    venv,
+    __pycache__,
+    .env,
+    faiss_index
+ignore =
+    E501,
+    W503

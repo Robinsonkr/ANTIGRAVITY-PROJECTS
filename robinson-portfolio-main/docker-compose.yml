@@ -1,0 +1,52 @@
+# ============================================
+# Robinson Portfolio — Local Development
+# Usage: docker-compose up --build
+# ============================================
+
+version: "3.9"
+
+services:
+  # ─────────────────────────────────────────
+  # FastAPI Backend (port 8000)
+  # ─────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: robinson-backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ./backend/knowledge_base.txt:/app/knowledge_base.txt:ro
+      - faiss_data:/app/faiss_index
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/')" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # ─────────────────────────────────────────
+  # Static Frontend via Nginx (port 3000)
+  # ─────────────────────────────────────────
+  frontend:
+    image: nginx:alpine
+    container_name: robinson-frontend
+    ports:
+      - "3000:80"
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+      - ./resume.html:/usr/share/nginx/html/resume.html:ro
+      - ./css:/usr/share/nginx/html/css:ro
+      - ./js:/usr/share/nginx/html/js:ro
+      - ./images:/usr/share/nginx/html/images:ro
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  faiss_data:

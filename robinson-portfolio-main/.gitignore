@@ -2,10 +2,21 @@
 .DS_Store
 Thumbs.db
 
-# Idea / Editor Files
+# IDE / Editor Files
 .vscode/
 .idea/
 
-# Agent Files (Internal state)
-brain/
-*.md (only if not wanted in repo, but task/walkthrough are useful)
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment & Secrets
+backend/.env
+
+# FAISS index (regenerated at runtime)
+backend/faiss_index/
+
+# Docker
+docker-compose.override.yml
