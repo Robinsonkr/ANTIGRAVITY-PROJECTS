@@ -18,8 +18,10 @@ from langchain_core.callbacks import (
     CallbackManagerForChainRun,
     Callbacks,
 )
+from langchain_core.load.dump import dumpd
 from langchain_core.memory import BaseMemory
 from langchain_core.outputs import RunInfo
+from langchain_core.pydantic_v1 import BaseModel, Field, root_validator, validator
 from langchain_core.runnables import (
     RunnableConfig,
     RunnableSerializable,
@@ -27,13 +29,6 @@ from langchain_core.runnables import (
     run_in_executor,
 )
 from langchain_core.runnables.utils import create_model
-from pydantic import (
-    BaseModel,
-    ConfigDict,
-    Field,
-    field_validator,
-    model_validator,
-)
 
 from langchain.schema import RUN_KEY
 
@@ -101,9 +96,8 @@ class Chain(RunnableSerializable[Dict[str, Any], Dict[str, Any]], ABC):
     callback_manager: Optional[BaseCallbackManager] = Field(default=None, exclude=True)
     """[DEPRECATED] Use `callbacks` instead."""
 
-    model_config = ConfigDict(
-        arbitrary_types_allowed=True,
-    )
+    class Config:
+        arbitrary_types_allowed = True
 
     def get_input_schema(
         self, config: Optional[RunnableConfig] = None
@@ -149,7 +143,7 @@ class Chain(RunnableSerializable[Dict[str, Any], Dict[str, Any]], ABC):
         new_arg_supported = inspect.signature(self._call).parameters.get("run_manager")
 
         run_manager = callback_manager.on_chain_start(
-            None,
+            dumpd(self),
             inputs,
             run_id,
             name=run_name,
@@ -201,7 +195,7 @@ class Chain(RunnableSerializable[Dict[str, Any], Dict[str, Any]], ABC):
         )
         new_arg_supported = inspect.signature(self._acall).parameters.get("run_manager")
         run_manager = await callback_manager.on_chain_start(
-            None,
+            dumpd(self),
             inputs,
             run_id,
             name=run_name,
@@ -229,9 +223,8 @@ class Chain(RunnableSerializable[Dict[str, Any], Dict[str, Any]], ABC):
     def _chain_type(self) -> str:
         raise NotImplementedError("Saving not supported for this chain type.")
 
-    @model_validator(mode="before")
-    @classmethod
-    def raise_callback_manager_deprecation(cls, values: Dict) -> Any:
+    @root_validator(pre=True)
+    def raise_callback_manager_deprecation(cls, values: Dict) -> Dict:
         """Raise deprecation warning if callback_manager is used."""
         if values.get("callback_manager") is not None:
             if values.get("callbacks") is not None:
@@ -247,8 +240,7 @@ class Chain(RunnableSerializable[Dict[str, Any], Dict[str, Any]], ABC):
             values["callbacks"] = values.pop("callback_manager", None)
         return values
 
-    @field_validator("verbose", mode="before")
-    @classmethod
+    @validator("verbose", pre=True, always=True)
     def set_verbose(cls, verbose: Optional[bool]) -> bool:
         """Set the chain verbosity.
 
