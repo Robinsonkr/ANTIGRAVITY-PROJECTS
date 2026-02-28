@@ -7,7 +7,7 @@ name: CD — Deploy
 
 on:
   push:
-    branches: [main]
+    branches: [master]
 
 # Required for GitHub Pages deployment
 permissions:
