@@ -31,6 +31,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#gallery">Gallery</a></li>
             <li><a href="#achievements">Achievements</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#blog">Blog</a></li>
@@ -72,6 +73,8 @@
                             class="fab fa-linkedin"></i></a>
                     <a href="https://www.instagram.com/robinson_k.r" target="_blank" class="social-icon"><i
                             class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@robinson_kr" target="_blank" class="social-icon"><i
+                            class="fab fa-youtube"></i></a>
                     <a href="mailto:robinsonkrobert@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
@@ -145,22 +148,16 @@
                         <span class="skill-category">Cloud & DevOps</span>
                         <i class="fas fa-cloud" style="font-size: 20px; color: var(--accent-color);"></i>
                     </div>
-                    <div class="skill-names">Azure, Docker, Terraform, Ansible</div>
+                    <div class="skill-names">Azure, Docker, Terraform, Ansible </div>
                 </div>
                 <div class="skill-card">
                     <div style="display: flex; justify-content: space-between; align-items: start;">
                         <span class="skill-category">Automation</span>
                         <i class="fas fa-robot" style="font-size: 20px; color: var(--accent-color);"></i>
                     </div>
-                    <div class="skill-names">Jiffy.ai RPA</div>
+                    <div class="skill-names">Jiffy.ai RPA, Playwright</div>
                 </div>
-                <div class="skill-card">
-                    <div style="display: flex; justify-content: space-between; align-items: start;">
-                        <span class="skill-category">Azure Cloud</span>
-                        <i class="fas fa-server" style="font-size: 20px; color: var(--accent-color);"></i>
-                    </div>
-                    <div class="skill-names">VMs, Resource Groups, Docker, Terraform, Ansible</div>
-                </div>
+
                 <div class="skill-card">
                     <div style="display: flex; justify-content: space-between; align-items: start;">
                         <span class="skill-category">Version Control & Tools</span>
@@ -175,51 +172,325 @@
             <h2 class="heading reveal reveal-left">Where I've Worked</h2>
 
             <div class="timeline">
-                <div class="job">
+                <style>
+                    .job-card-animated {
+                        position: relative;
+                        background: rgba(255, 255, 255, 0.02);
+                        border-left: 3px solid var(--accent-color, #00ff80);
+                        padding: 25px;
+                        border-radius: 0 12px 12px 0;
+                        margin-bottom: 30px;
+                        transition: all 0.4s ease;
+                        overflow: hidden;
+                    }
+
+                    .job-card-animated:hover {
+                        transform: translateX(10px);
+                        background: rgba(0, 255, 128, 0.05);
+                        box-shadow: 0 10px 30px -15px rgba(0, 255, 128, 0.2);
+                    }
+
+                    .job-card-animated::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(90deg, rgba(0, 255, 128, 0.05) 0%, transparent 100%);
+                        opacity: 0;
+                        transition: opacity 0.4s ease;
+                        pointer-events: none;
+                    }
+
+                    .job-card-animated:hover::before {
+                        opacity: 1;
+                    }
+
+                    /* Staggered Bullet Points Animation */
+                    .animated-bullet {
+                        opacity: 0.7;
+                        transform: translateX(0);
+                        transition: all 0.3s ease;
+                    }
+
+                    .job-card-animated:hover .animated-bullet {
+                        opacity: 1;
+                        transform: translateX(5px);
+                    }
+
+                    .job-card-animated .job-details li {
+                        margin-bottom: 12px;
+                        position: relative;
+                        padding-left: 20px;
+                    }
+
+                    .job-card-animated .job-details li::before {
+                        content: '▹';
+                        position: absolute;
+                        left: 0;
+                        color: var(--accent-color, #00ff80);
+                        font-size: 1.2em;
+                        line-height: 12px;
+                        transition: transform 0.3s ease;
+                    }
+
+                    .job-card-animated:hover .job-details li::before {
+                        transform: scale(1.2) translateX(3px);
+                    }
+
+                    /* Stagger delays for bullets */
+                    .job-card-animated:hover .job-details li:nth-child(1) {
+                        transition-delay: 0.05s;
+                    }
+
+                    .job-card-animated:hover .job-details li:nth-child(2) {
+                        transition-delay: 0.1s;
+                    }
+
+                    .job-card-animated:hover .job-details li:nth-child(3) {
+                        transition-delay: 0.15s;
+                    }
+
+                    .job-card-animated:hover .job-details li:nth-child(4) {
+                        transition-delay: 0.2s;
+                    }
+                </style>
+                <div class="job job-card-animated">
                     <div class="job-header">
-                        <h3 class="job-title">Senior Back End Developer <a
-                                href="https://www.linkedin.com/company/logicplum/" target="_blank" rel="noopener"><span
-                                    class="company">@ LogicPlum</span></a></h3>
-                        <span class="job-duration">June 2023 – Present</span>
+                        <h3 class="job-title" style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
+                            Senior Back End Developer
+                            <a href="https://www.linkedin.com/company/logicplum/" target="_blank" rel="noopener"
+                                style="text-decoration: none;">
+                                <span class="company" style="position: relative; transition: color 0.3s;">
+                                    @ LogicPlum
+                                    <i class="fas fa-external-link-alt"
+                                        style="font-size: 0.7em; margin-left: 5px; opacity: 0; transition: opacity 0.3s; transform: translateY(-2px);"></i>
+                                </span>
+                            </a>
+                        </h3>
+                        <span class="job-duration"
+                            style="font-family: var(--font-mono); font-size: 0.9em; color: var(--accent-color);">June
+                            2023 – Present</span>
                     </div>
-                    <ul class="job-details">
-                        <li>Developed and maintained scalable RESTful APIs to support core business workflows.</li>
-                        <li>Produced structured technical documentation to improve maintainability and knowledge
+                    <ul class="job-details" style="list-style: none; padding-left: 0;">
+                        <li class="animated-bullet">Developed and maintained scalable RESTful APIs to support core
+                            business workflows.</li>
+                        <li class="animated-bullet">Produced structured technical documentation to improve
+                            maintainability and knowledge
                             transfer.</li>
-                        <li>Improved application performance, code quality, and reliability through regular code
+                        <li class="animated-bullet">Improved application performance, code quality, and reliability
+                            through regular code
                             reviews.</li>
-                        <li>Collaborated actively in Agile/Scrum ceremonies to support continuous improvement.</li>
+                        <li class="animated-bullet">Collaborated actively in Agile/Scrum ceremonies to support
+                            continuous improvement.</li>
                     </ul>
                 </div>
 
-                <div class="job">
+                <style>
+                    /* Saasvaap / Enterprise Theme */
+                    .volvo-card-animated {
+                        position: relative;
+                        background: rgba(255, 255, 255, 0.02);
+                        border-left: 3px solid #0078D4;
+                        /* Enterprise Blue */
+                        padding: 25px;
+                        border-radius: 0 12px 12px 0;
+                        margin-bottom: 30px;
+                        transition: all 0.4s ease;
+                        overflow: hidden;
+                    }
+
+                    .volvo-card-animated:hover {
+                        transform: translateX(10px);
+                        background: rgba(0, 120, 212, 0.05);
+                        box-shadow: 0 10px 30px -15px rgba(0, 120, 212, 0.2);
+                    }
+
+                    .volvo-card-animated::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(90deg, rgba(0, 120, 212, 0.05) 0%, transparent 100%);
+                        opacity: 0;
+                        transition: opacity 0.4s ease;
+                        pointer-events: none;
+                    }
+
+                    .volvo-card-animated:hover::before {
+                        opacity: 1;
+                    }
+
+                    .volvo-card-animated .job-details li {
+                        margin-bottom: 12px;
+                        position: relative;
+                        padding-left: 20px;
+                    }
+
+                    .volvo-card-animated .job-details li::before {
+                        content: '▹';
+                        position: absolute;
+                        left: 0;
+                        color: #0078D4;
+                        font-size: 1.2em;
+                        line-height: 12px;
+                        transition: transform 0.3s ease;
+                    }
+
+                    .volvo-card-animated:hover .job-details li::before {
+                        transform: scale(1.2) translateX(3px);
+                    }
+
+                    .volvo-card-animated:hover .animated-bullet {
+                        opacity: 1;
+                        transform: translateX(5px);
+                    }
+
+                    /* Ylem / Django Theme */
+                    .django-card-animated {
+                        position: relative;
+                        background: rgba(255, 255, 255, 0.02);
+                        border-left: 3px solid #092E20;
+                        /* Django Green/Dark */
+                        border-left-color: #44B78B;
+                        /* Brighter Django Green for visibility */
+                        padding: 25px;
+                        border-radius: 0 12px 12px 0;
+                        margin-bottom: 30px;
+                        transition: all 0.4s ease;
+                        overflow: hidden;
+                    }
+
+                    .django-card-animated:hover {
+                        transform: translateX(10px);
+                        background: rgba(68, 183, 139, 0.05);
+                        box-shadow: 0 10px 30px -15px rgba(68, 183, 139, 0.2);
+                    }
+
+                    .django-card-animated::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(90deg, rgba(68, 183, 139, 0.05) 0%, transparent 100%);
+                        opacity: 0;
+                        transition: opacity 0.4s ease;
+                        pointer-events: none;
+                    }
+
+                    .django-card-animated:hover::before {
+                        opacity: 1;
+                    }
+
+                    .django-card-animated .job-details li {
+                        margin-bottom: 12px;
+                        position: relative;
+                        padding-left: 20px;
+                    }
+
+                    .django-card-animated .job-details li::before {
+                        content: '▹';
+                        position: absolute;
+                        left: 0;
+                        color: #44B78B;
+                        font-size: 1.2em;
+                        line-height: 12px;
+                        transition: transform 0.3s ease;
+                    }
+
+                    .django-card-animated:hover .job-details li::before {
+                        transform: scale(1.2) translateX(3px);
+                    }
+
+                    .django-card-animated:hover .animated-bullet {
+                        opacity: 1;
+                        transform: translateX(5px);
+                    }
+
+                    /* Stagger delays for both new cards */
+                    .volvo-card-animated:hover .job-details li:nth-child(1),
+                    .django-card-animated:hover .job-details li:nth-child(1) {
+                        transition-delay: 0.05s;
+                    }
+
+                    .volvo-card-animated:hover .job-details li:nth-child(2),
+                    .django-card-animated:hover .job-details li:nth-child(2) {
+                        transition-delay: 0.1s;
+                    }
+
+                    .volvo-card-animated:hover .job-details li:nth-child(3),
+                    .django-card-animated:hover .job-details li:nth-child(3) {
+                        transition-delay: 0.15s;
+                    }
+
+                    .volvo-card-animated:hover .job-details li:nth-child(4),
+                    .django-card-animated:hover .job-details li:nth-child(4) {
+                        transition-delay: 0.2s;
+                    }
+                </style>
+
+                <div class="job volvo-card-animated">
                     <div class="job-header">
-                        <h3 class="job-title">Software Developer <a href="https://www.linkedin.com/company/saasvaap-inc"
-                                target="_blank" rel="noopener"><span class="company">@ Saasvaap Techies</span></a></h3>
-                        <span class="job-duration">March 2021 – Feb 2023</span>
+                        <h3 class="job-title" style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
+                            Software Developer
+                            <a href="https://www.linkedin.com/company/saasvaap-inc" target="_blank" rel="noopener"
+                                style="text-decoration: none;">
+                                <span class="company"
+                                    style="position: relative; transition: color 0.3s; color: #0078D4;">
+                                    @ Saasvaap Techies
+                                    <i class="fas fa-external-link-alt"
+                                        style="font-size: 0.7em; margin-left: 5px; opacity: 0; transition: opacity 0.3s; transform: translateY(-2px);"></i>
+                                </span>
+                            </a>
+                        </h3>
+                        <span class="job-duration"
+                            style="font-family: var(--font-mono); font-size: 0.9em; color: #0078D4;">March 2021 – Feb
+                            2023</span>
                     </div>
-                    <ul class="job-details">
-                        <li>Worked as an External Consultant for Volvo Group, delivering enterprise automation solutions
+                    <ul class="job-details" style="list-style: none; padding-left: 0;">
+                        <li class="animated-bullet">Worked as an External Consultant for Volvo Group, delivering
+                            enterprise automation solutions
                             using Python and Jiffy.ai.</li>
-                        <li>Automated Journal Voucher (JV) processing workflows integrated with Outlook and SAP systems.
+                        <li class="animated-bullet">Automated Journal Voucher (JV) processing workflows integrated with
+                            Outlook and SAP systems.
                         </li>
-                        <li>Implemented validation checks, approval workflows, and automated document handling.</li>
-                        <li>Monitored automated processes and provided production support.</li>
+                        <li class="animated-bullet">Implemented validation checks, approval workflows, and automated
+                            document handling.</li>
+                        <li class="animated-bullet">Monitored automated processes and provided production support.</li>
                     </ul>
                 </div>
 
-                <div class="job">
+                <div class="job django-card-animated">
                     <div class="job-header">
-                        <h3 class="job-title">Software Engineer <a
-                                href="https://www.linkedin.com/company/ylem-infotech-pvt-ltd" target="_blank"
-                                rel="noopener"><span class="company">@ Ylem Infotech</span></a></h3>
-                        <span class="job-duration">April 2019 – April 2020</span>
+                        <h3 class="job-title" style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
+                            Software Engineer
+                            <a href="https://www.linkedin.com/company/ylem-infotech-pvt-ltd" target="_blank"
+                                rel="noopener" style="text-decoration: none;">
+                                <span class="company"
+                                    style="position: relative; transition: color 0.3s; color: #44B78B;">
+                                    @ Ylem Infotech
+                                    <i class="fas fa-external-link-alt"
+                                        style="font-size: 0.7em; margin-left: 5px; opacity: 0; transition: opacity 0.3s; transform: translateY(-2px);"></i>
+                                </span>
+                            </a>
+                        </h3>
+                        <span class="job-duration"
+                            style="font-family: var(--font-mono); font-size: 0.9em; color: #44B78B;">April 2019 – April
+                            2020</span>
                     </div>
-                    <ul class="job-details">
-                        <li>Developed web applications using Python and Django with a focus on modular, reusable
+                    <ul class="job-details" style="list-style: none; padding-left: 0;">
+                        <li class="animated-bullet">Developed web applications using Python and Django with a focus on
+                            modular, reusable
                             components.</li>
-                        <li>Assisted in application enhancements, bug fixing, and performance improvements.</li>
-                        <li>Participated in feature analysis and User Acceptance Testing (UAT) activities.</li>
+                        <li class="animated-bullet">Assisted in application enhancements, bug fixing, and performance
+                            improvements.</li>
+                        <li class="animated-bullet">Participated in feature analysis and User Acceptance Testing (UAT)
+                            activities.</li>
                     </ul>
                 </div>
             </div>
@@ -229,15 +500,223 @@
             <h2 class="heading reveal reveal-left">Some Things I've Built</h2>
             <div class="projects-grid">
                 <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="folder-icon">📂</div>
+                <style>
+                    @keyframes cloudFloat {
+                        0% {
+                            transform: translateY(0px);
+                            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+                        }
+
+                        50% {
+                            transform: translateY(-10px);
+                            box-shadow: 0 15px 30px rgba(0, 255, 128, 0.2);
+                        }
+
+                        100% {
+                            transform: translateY(0px);
+                            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+                        }
+                    }
+
+                    @keyframes techPulse {
+                        0% {
+                            opacity: 0.7;
+                            filter: drop-shadow(0 0 2px #00ff80);
+                        }
+
+                        50% {
+                            opacity: 1;
+                            filter: drop-shadow(0 0 10px #00ff80);
+                        }
+
+                        100% {
+                            opacity: 0.7;
+                            filter: drop-shadow(0 0 2px #00ff80);
+                        }
+                    }
+
+                    .autocloud-animated {
+                        animation: cloudFloat 4s ease-in-out infinite;
+                        border: 1px solid rgba(0, 255, 128, 0.15) !important;
+                        transition: all 0.3s ease;
+                        position: relative;
+                        overflow: hidden;
+                        cursor: pointer;
+                    }
+
+                    .autocloud-animated::before {
+                        content: '';
+                        position: absolute;
+                        top: -50%;
+                        left: -50%;
+                        width: 200%;
+                        height: 200%;
+                        background: radial-gradient(circle, rgba(0, 255, 128, 0.05) 0%, transparent 70%);
+                        opacity: 0;
+                        transition: opacity 0.5s ease;
+                        pointer-events: none;
+                    }
+
+                    .autocloud-animated:hover::before {
+                        opacity: 1;
+                        animation: rotateBg 10s linear infinite;
+                    }
+
+                    @keyframes rotateBg {
+                        0% {
+                            transform: rotate(0deg);
+                        }
+
+                        100% {
+                            transform: rotate(360deg);
+                        }
+                    }
+
+                    .terminal-window {
+                        display: none;
+                        background: #0d1117;
+                        border-radius: 6px;
+                        padding: 15px;
+                        font-family: 'Courier New', Courier, monospace;
+                        font-size: 0.85rem;
+                        line-height: 1.4;
+                        color: #00ff80;
+                        margin-top: 15px;
+                        border: 1px solid #30363d;
+                        text-align: left;
+                        height: 180px;
+                        overflow-y: auto;
+                        position: relative;
+                        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+                    }
+
+                    .terminal-cursor {
+                        display: inline-block;
+                        width: 8px;
+                        height: 15px;
+                        background-color: #00ff80;
+                        animation: blinkCursor 1s infinite;
+                        vertical-align: middle;
+                        margin-left: 5px;
+                    }
+
+                    @keyframes blinkCursor {
+
+                        0%,
+                        100% {
+                            opacity: 1;
+                        }
+
+                        50% {
+                            opacity: 0;
+                        }
+                    }
+                </style>
+                <script>
+                    function triggerAutoCloudTerminal(element) {
+                        const card = element;
+                        const desc = card.querySelector('.project-description');
+                        const techList = card.querySelector('.project-tech-list');
+                        let term = card.querySelector('.terminal-window');
+
+                        if (term && term.style.display === 'block') {
+                            term.style.display = 'none';
+                            desc.style.display = 'block';
+                            techList.style.display = 'flex';
+                            term.innerHTML = '';
+                            return;
+                        }
+
+                        desc.style.display = 'none';
+                        techList.style.display = 'none';
+
+                        if (!term) {
+                            term = document.createElement('div');
+                            term.className = 'terminal-window';
+                            card.appendChild(term);
+                        }
+
+                        term.style.display = 'block';
+                        term.innerHTML = '<div style="display:flex; align-items:flex-end; color:#c9d1d9;"><span style="color:#a5d6ff;">admin@autocloud</span>:<span style="color:#79c0ff;">~</span>$ ./deploy.sh</div><div style="margin-top:10px;" class="terminal-content"></div><div class="terminal-cursor"></div>';
+
+                        const content = term.querySelector('.terminal-content');
+
+                        const lines = [
+
+                            "AutoCloud generates backend/frontend...",
+                            "Terraform provisions Azure infra...",
+                            "Ansible configures server...",
+                            "App deployed 🚀"
+                        ];
+
+                        let lineIndex = 0;
+                        function typeLine() {
+                            if (lineIndex >= lines.length) {
+                                // Once done, show completion status
+                                const doneLine = document.createElement('div');
+                                doneLine.style.color = '#a5d6ff';
+                                doneLine.style.marginTop = '10px';
+                                doneLine.innerHTML = 'admin@autocloud:~<span style="color:#79c0ff;">$</span> <span style="font-size: 0.7rem; color: #8b949e;">(Click outside to exit)</span>';
+                                term.insertBefore(doneLine, term.querySelector('.terminal-cursor'));
+                                term.scrollTop = term.scrollHeight;
+                                return;
+                            }
+
+                            const lineElem = document.createElement('div');
+                            lineElem.style.marginBottom = '6px';
+                            term.insertBefore(lineElem, term.querySelector('.terminal-cursor'));
+
+                            const text = lines[lineIndex];
+                            let charIndex = 0;
+
+                            const isArrow = text === "⬇️";
+                            const typeSpeed = isArrow ? 20 : 35;
+
+                            function typeChar() {
+                                if (charIndex < text.length) {
+                                    // Properly handle emoji characters based on charCode combinations
+                                    // But simple charAt usually splits emojis. Using Array.from for better emoji support
+                                    const chars = Array.from(text);
+                                    if (charIndex < chars.length) {
+                                        lineElem.innerHTML += chars[charIndex];
+                                        charIndex++;
+                                        term.scrollTop = term.scrollHeight;
+                                        setTimeout(typeChar, typeSpeed);
+                                    } else {
+                                        finishLine();
+                                    }
+                                } else {
+                                    finishLine();
+                                }
+                            }
+
+                            function finishLine() {
+                                lineIndex++;
+                                setTimeout(typeLine, isArrow ? 100 : 300);
+                            }
+
+                            typeChar();
+                        }
+
+                        typeLine();
+                    }
+                </script>
+                <div class="project-card autocloud-animated" onclick="triggerAutoCloudTerminal(this)"
+                    title="Click to view deployment process!">
+                    <div class="project-header" style="display:flex; justify-content: space-between;">
+                        <div class="folder-icon" style="animation: techPulse 3s infinite;"><i class="fas fa-cloud"
+                                style="color: #00ff80; font-size: 1.8rem;"></i></div>
                     </div>
-                    <h3 class="project-title">AutoCloud</h3>
+                    <h3 class="project-title" style="color: #00ff80; display: flex; align-items: center; gap: 10px;">
+                        AutoCloud <i class="fas fa-cog"
+                            style="font-size: 1rem; animation: rotateBg 4s linear infinite;"></i>
+                        <span
+                            style="font-size: 0.6rem; background: rgba(0,255,128,0.2); padding: 4px 8px; border-radius: 12px; margin-left: auto; letter-spacing: 1px;">CLICK
+                            TO DEPLOY</span>
+                    </h3>
                     <p class="project-description">
                         A fully automated DevOps platform to generate backend services and Angular frontend starter
-                        projects.
-                        Automated Azure cloud infrastructure provisioning using Terraform and Ansible.
+                        projects. Automated Azure cloud infrastructure provisioning using Terraform and Ansible.
                     </p>
                     <ul class="project-tech-list">
                         <li>Python</li>
@@ -249,40 +728,313 @@
                 </div>
 
                 <!-- Project 2 -->
-                <div class="project-card">
+                <style>
+                    .winnow-animated {
+                        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+                        position: relative;
+                        overflow: hidden;
+                        border: 1px solid rgba(255, 71, 87, 0.1) !important;
+                        cursor: pointer;
+                        transform-style: preserve-3d;
+                        perspective: 1000px;
+                    }
+
+                    .winnow-animated:hover {
+                        transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
+                        box-shadow: -10px 15px 30px rgba(255, 71, 87, 0.2), 10px 15px 30px rgba(0, 210, 211, 0.1);
+                        border-color: rgba(255, 71, 87, 0.3) !important;
+                    }
+
+                    @keyframes heartbeat {
+                        0% {
+                            transform: scale(1);
+                            filter: drop-shadow(0 0 2px #ff4757);
+                        }
+
+                        14% {
+                            transform: scale(1.3);
+                            filter: drop-shadow(0 0 10px #ff4757);
+                        }
+
+                        28% {
+                            transform: scale(1);
+                            filter: drop-shadow(0 0 2px #ff4757);
+                        }
+
+                        42% {
+                            transform: scale(1.3);
+                            filter: drop-shadow(0 0 10px #ff4757);
+                        }
+
+                        70% {
+                            transform: scale(1);
+                            filter: drop-shadow(0 0 2px #ff4757);
+                        }
+
+                        100% {
+                            transform: scale(1);
+                            filter: drop-shadow(0 0 2px #ff4757);
+                        }
+                    }
+
+                    .winnow-animated:hover .heart-icon {
+                        animation: heartbeat 1.5s infinite;
+                        color: #ff4757 !important;
+                    }
+
+                    @keyframes ekgLine {
+                        0% {
+                            width: 0;
+                            opacity: 0;
+                        }
+
+                        10% {
+                            opacity: 1;
+                        }
+
+                        90% {
+                            opacity: 1;
+                        }
+
+                        100% {
+                            width: 100%;
+                            opacity: 0;
+                        }
+                    }
+
+                    .winnow-ekg {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        height: 2px;
+                        background: linear-gradient(90deg, transparent, #ff4757, #00d2d1, transparent);
+                        width: 0;
+                        opacity: 0;
+                    }
+
+                    .winnow-animated:hover .winnow-ekg {
+                        animation: ekgLine 2s linear infinite;
+                    }
+                </style>
+                <div class="project-card winnow-animated" title="Physician Hiring Portal">
+                    <div class="winnow-ekg"></div>
                     <div class="project-header">
-                        <div class="folder-icon">📂</div>
-                        <!-- <a href="#" class="external-link">🔗</a> -->
+                        <div class="folder-icon heart-icon" style="transition: all 0.3s ease;"><i
+                                class="fas fa-heartbeat" style="color: #00d2d1; font-size: 1.8rem;"></i></div>
                     </div>
-                    <h3 class="project-title">Winnow - Hiring Portal</h3>
+                    <h3 class="project-title" style="display: flex; align-items: center; gap: 10px;">
+                        <span
+                            style="background: linear-gradient(90deg, #ff4757, #00d2d1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Winnow
+                            - Hiring Portal</span>
+                    </h3>
                     <p class="project-description">
                         A recruitment platform focused on physician hiring. Built REST APIs and backend services using
                         Python and Django.
                         Integrated MySQL, Celery, and Swagger.
                     </p>
                     <ul class="project-tech-list">
-                        <li>Django</li>
-                        <li>MySQL</li>
-                        <li>Celery</li>
-                        <li>Swagger</li>
+                        <li style="border-bottom: 2px solid transparent; transition: border 0.3s;"
+                            onmouseover="this.style.borderBottomColor='#00d2d1'"
+                            onmouseout="this.style.borderBottomColor='transparent'">Django</li>
+                        <li style="border-bottom: 2px solid transparent; transition: border 0.3s;"
+                            onmouseover="this.style.borderBottomColor='#00d2d1'"
+                            onmouseout="this.style.borderBottomColor='transparent'">MySQL</li>
+                        <li style="border-bottom: 2px solid transparent; transition: border 0.3s;"
+                            onmouseover="this.style.borderBottomColor='#00d2d1'"
+                            onmouseout="this.style.borderBottomColor='transparent'">Celery</li>
+                        <li style="border-bottom: 2px solid transparent; transition: border 0.3s;"
+                            onmouseover="this.style.borderBottomColor='#00d2d1'"
+                            onmouseout="this.style.borderBottomColor='transparent'">Swagger</li>
                     </ul>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="folder-icon">📂</div>
+                <style>
+                    .volvo-jv-animated {
+                        position: relative;
+                        overflow: hidden;
+                        border: 1px solid rgba(0, 114, 206, 0.1) !important;
+                        /* Volvo Blue */
+                        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                        cursor: pointer;
+                        background: linear-gradient(145deg, var(--card-bg), rgba(0, 114, 206, 0.03));
+                    }
+
+                    .volvo-jv-animated:hover {
+                        transform: translateY(-8px);
+                        box-shadow: 0 15px 30px rgba(0, 114, 206, 0.15), inset 0 0 15px rgba(0, 114, 206, 0.05);
+                        border-color: rgba(0, 114, 206, 0.4) !important;
+                    }
+
+                    /* Data Flow Animation Container */
+                    .data-flow-container {
+                        position: absolute;
+                        top: 15px;
+                        right: 15px;
+                        display: flex;
+                        align-items: center;
+                        gap: 15px;
+                        opacity: 0.5;
+                        transition: opacity 0.3s ease;
+                    }
+
+                    .volvo-jv-animated:hover .data-flow-container {
+                        opacity: 1;
+                    }
+
+                    /* Outlook Mail Icon */
+                    .outlook-icon {
+                        color: #0078D4;
+                        font-size: 1.2rem;
+                        position: relative;
+                        z-index: 2;
+                    }
+
+                    /* SAP Data Icon */
+                    .sap-icon {
+                        color: #008FD3;
+                        font-size: 1.2rem;
+                        position: relative;
+                        z-index: 2;
+                    }
+
+                    /* Connecting Line */
+                    .flow-line {
+                        position: absolute;
+                        top: 50%;
+                        left: 20px;
+                        right: 20px;
+                        height: 2px;
+                        background: rgba(255, 255, 255, 0.1);
+                        z-index: 1;
+                        transform: translateY(-50%);
+                    }
+
+                    /* Moving Packet (The Document/Data) */
+                    .data-packet {
+                        position: absolute;
+                        top: 50%;
+                        left: 10px;
+                        width: 8px;
+                        height: 8px;
+                        background: #00ff80;
+                        border-radius: 50%;
+                        box-shadow: 0 0 8px #00ff80, 0 0 15px #00ff80;
+                        transform: translateY(-50%);
+                        opacity: 0;
+                        z-index: 3;
+                    }
+
+                    @keyframes sendData {
+                        0% {
+                            left: 15px;
+                            opacity: 0;
+                            transform: translateY(-50%) scale(0.5);
+                        }
+
+                        10% {
+                            opacity: 1;
+                            transform: translateY(-50%) scale(1);
+                            box-shadow: 0 0 10px #0078D4;
+                            background: #0078D4;
+                        }
+
+                        /* Outlook Blue */
+                        50% {
+                            background: #00ff80;
+                            box-shadow: 0 0 15px #00ff80;
+                        }
+
+                        /* Processing Green */
+                        90% {
+                            opacity: 1;
+                            transform: translateY(-50%) scale(1);
+                            box-shadow: 0 0 10px #008FD3;
+                            background: #008FD3;
+                        }
+
+                        /* SAP Blue */
+                        100% {
+                            left: calc(100% - 25px);
+                            opacity: 0;
+                            transform: translateY(-50%) scale(0.5);
+                        }
+                    }
+
+                    @keyframes bounceMail {
+
+                        0%,
+                        100% {
+                            transform: translateY(0);
+                        }
+
+                        50% {
+                            transform: translateY(-3px);
+                        }
+                    }
+
+                    @keyframes sapProcess {
+
+                        0%,
+                        100% {
+                            filter: drop-shadow(0 0 0px transparent);
+                        }
+
+                        50% {
+                            filter: drop-shadow(0 0 8px #008FD3);
+                        }
+                    }
+
+                    .volvo-jv-animated:hover .data-packet {
+                        animation: sendData 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+                    }
+
+                    .volvo-jv-animated:hover .outlook-icon {
+                        animation: bounceMail 2s infinite ease-in-out;
+                    }
+
+                    .volvo-jv-animated:hover .sap-icon {
+                        animation: sapProcess 2s infinite ease-in-out;
+                        animation-delay: 1.5s;
+                    }
+                </style>
+                <div class="project-card volvo-jv-animated" title="Invoice & Data Flow Automation">
+                    <!-- The Interactive Flow Graphic -->
+                    <div class="data-flow-container">
+                        <i class="fas fa-envelope outlook-icon" title="Outlook Invoice Mailbox"></i>
+                        <div class="flow-line"></div>
+                        <div class="data-packet"></div>
+                        <i class="fas fa-server sap-icon" title="SAP ERP System"></i>
                     </div>
-                    <h3 class="project-title">Journal Vouchers Automation</h3>
+
+                    <div class="project-header">
+                        <div class="folder-icon" style="transition: color 0.3s;"><i class="fas fa-file-invoice-dollar"
+                                style="color: #0072ce; font-size: 1.8rem;"></i></div>
+                    </div>
+                    <h3 class="project-title" style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #0072ce; font-weight: 700;">Volvo Group</span> - JV Automation
+                    </h3>
                     <p class="project-description">
-                        Automated JV request processing received via Outlook mailbox.
-                        Implemented SAP JV creation, approval workflows, document attachment, and automated responses.
+                        Automated Journal Voucher request processing received via <strong
+                            style="color: #0078D4;">Outlook</strong> mailbox.
+                        Implemented <strong style="color: #008FD3;">SAP</strong> JV creation, approval workflows,
+                        document attachment, and automated responses.
                     </p>
                     <ul class="project-tech-list">
-                        <li>Python</li>
-                        <li>Jiffy.ai</li>
-                        <li>Outlook API</li>
-                        <li>SAP</li>
+                        <li style="border: 1px solid rgba(0, 114, 206, 0.2); transition: all 0.3s;"
+                            onmouseover="this.style.background='rgba(0,114,206,0.1)';this.style.transform='scale(1.05)'"
+                            onmouseout="this.style.background='transparent';this.style.transform='scale(1)'">Python</li>
+                        <li style="border: 1px solid rgba(0, 114, 206, 0.2); transition: all 0.3s;"
+                            onmouseover="this.style.background='rgba(0,114,206,0.1)';this.style.transform='scale(1.05)'"
+                            onmouseout="this.style.background='transparent';this.style.transform='scale(1)'">Jiffy.ai
+                        </li>
+                        <li style="border: 1px solid rgba(0, 114, 206, 0.2); transition: all 0.3s;"
+                            onmouseover="this.style.background='rgba(0,114,206,0.1)';this.style.transform='scale(1.05)'"
+                            onmouseout="this.style.background='transparent';this.style.transform='scale(1)'">Outlook API
+                        </li>
+                        <li style="border: 1px solid rgba(0, 114, 206, 0.2); transition: all 0.3s;"
+                            onmouseover="this.style.background='rgba(0,114,206,0.1)';this.style.transform='scale(1.05)'"
+                            onmouseout="this.style.background='transparent';this.style.transform='scale(1)'">SAP</li>
                     </ul>
                 </div>
             </div>
@@ -331,6 +1083,80 @@
                     </p>
                 </div>
             </div>
+            </div>
+        </section>
+
+        <!-- Video Gallery Section -->
+        <!-- Media Gallery Section -->
+        <section id="gallery" class="section container reveal reveal-up">
+            <h2 class="heading reveal reveal-left">Media Gallery</h2>
+            <p
+                style="text-align: center; margin-bottom: 20px; color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;">
+                Check out my latest video content and photography.
+            </p>
+
+            <h3 style="text-align: center; font-size: 1.5rem; margin-bottom: 25px; color: var(--text-primary);">Videos
+            </h3>
+            <div class="gallery-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; margin-bottom: 40px;">
+                <div class="youtube-wrapper"
+                    style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: relative; padding-bottom: 56.25%; height: 0; background: #000;">
+                    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                        src="https://www.youtube.com/embed/cauIYi6-oVQ?si=dQWwDLofUiaO72sQ" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="youtube-wrapper"
+                    style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: relative; padding-bottom: 56.25%; height: 0; background: #000;">
+                    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                        src="https://www.youtube.com/embed/i1APDNtjlWc?si=5eHbvakORwSeHRa4" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+                <div class="youtube-wrapper"
+                    style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: relative; padding-bottom: 56.25%; height: 0; background: #000;">
+                    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                        src="https://www.youtube.com/embed/BuHoYQACn70?si=FtJXIejR_SZiIgM1" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; font-size: 1.5rem; margin-bottom: 25px; color: var(--text-primary);">Photos
+            </h3>
+            <div class="gallery-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto;">
+                <div class="photo-wrapper"
+                    style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2); aspect-ratio: 1/1; background: #222;">
+                    <img src="images\photo2.JPG"
+                        style="width:100%; height:100%; object-fit: cover; transition: transform 0.3s ease;"
+                        alt="Instagram Photo 1" onmouseover="this.style.transform='scale(1.05)'"
+                        onmouseout="this.style.transform='scale(1)'">
+                </div>
+                <div class="photo-wrapper"
+                    style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2); aspect-ratio: 1/1; background: #222;">
+                    <img src="images\photo5.JPG"
+                        style="width:100%; height:100%; object-fit: cover; transition: transform 0.3s ease;"
+                        alt="Instagram Photo 2" onmouseover="this.style.transform='scale(1.05)'"
+                        onmouseout="this.style.transform='scale(1)'">
+                </div>
+
+            </div>
+
+            <div
+                style="text-align: center; margin-top: 30px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                <a href="https://www.youtube.com/@robinsonkr" target="_blank" class="btn"
+                    style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; font-size: 14px; border-radius: 20px;">
+                    <i class="fab fa-youtube" style="font-size: 18px; color: #ff0000;"></i> YouTube Channel
+                </a>
+                <a href="https://www.instagram.com/robinson_k.r" target="_blank" class="btn"
+                    style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; font-size: 14px; border-radius: 20px;">
+                    <i class="fab fa-instagram" style="font-size: 18px; color: #E1306C;"></i> Instagram
+                </a>
             </div>
         </section>
 
@@ -463,15 +1289,65 @@
                     <button type="submit" class="btn" style="width: 100%; font-size: 16px;">Send Message</button>
                 </form>
 
+                <style>
+                    .contact-details {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        gap: 15px;
+                        margin-top: 20px;
+                        justify-content: center;
+                    }
+
+                    .contact-card {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        padding: 10px 18px;
+                        background: rgba(255, 255, 255, 0.03);
+                        border: 1px solid rgba(255, 255, 255, 0.05);
+                        border-radius: 30px;
+                        transition: all 0.3s ease;
+                        text-decoration: none;
+                        color: var(--text-color, #c9d1d9);
+                        font-size: 0.95rem;
+                        font-weight: 500;
+                        width: fit-content;
+                    }
+
+                    .contact-card:hover {
+                        transform: translateY(-3px);
+                        background: rgba(0, 255, 128, 0.08);
+                        border-color: rgba(0, 255, 128, 0.4);
+                        box-shadow: 0 5px 15px rgba(0, 255, 128, 0.15);
+                        color: #ffffff;
+                    }
+
+                    .contact-card i {
+                        color: #00ff80;
+                        font-size: 1.1rem;
+                        transition: all 0.3s ease;
+                    }
+
+                    .contact-card:hover i {
+                        color: #ffffff;
+                        transform: scale(1.1);
+                    }
+                </style>
                 <div class="contact-details">
-                    <div class="contact-item">
+                    <a href="mailto:robinsonkrobert@gmail.com" class="contact-card">
+                        <i class="fas fa-envelope"></i>
                         <span>robinsonkrobert@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <span>+91-7736731743</span>
-                    </div>
-                    <div class="contact-item">
-                        <span>📍 Alappuzha,Kerala,India</span>
+                    </a>
+
+                    <a href="tel:+917736731743" class="contact-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>+91 77367 31743</span>
+                    </a>
+
+                    <div class="contact-card" style="cursor: default;">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Alappuzha, Kerala, India</span>
                     </div>
                 </div>
             </div>
@@ -500,6 +1376,7 @@
                     class="fab fa-linkedin"></i></a>
             <a href="https://www.instagram.com/robinson_k.r" target="_blank" class="social-icon"><i
                     class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@robinson_kr" class="social-icon"><i class="fab fa-youtube"></i></a>
             <a href="mailto:robinsonkrobert@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
         </div>
         <p>Built by Robinson</p>
