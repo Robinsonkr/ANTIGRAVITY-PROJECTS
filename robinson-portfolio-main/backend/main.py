@@ -13,9 +13,10 @@ except ImportError:
     from rag_engine import get_answer
     import database
     import auth
-    import auth
 
 # Initialize DB and create default admin
+
+
 def setup_db():
     database.init_db()
     db = database.SessionLocal()
@@ -32,12 +33,13 @@ def setup_db():
     finally:
         db.close()
 
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     setup_db()
     yield
 
-app = FastAPI(title="Robinson's Portfolio AI Chatbot API", lifespan=lifespan)# Enable CORS for the frontend
+app = FastAPI(title="Robinson's Portfolio AI Chatbot API", lifespan=lifespan)  # Enable CORS for the frontend
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["https://robinsonkr.vercel.app", "http://localhost:3000", "http://127.0.0.1:3000"],  # Restrict to Vercel production domain + localhost
@@ -107,17 +109,17 @@ async def track_visit(request: Request, db: Session = Depends(database.get_db)):
     try:
         data = await request.json()
         page_visited = data.get("page", "Unknown")
-        
+
         # Get IP address (works locally and behind Vercel/Render proxies)
         ip_address = request.headers.get("x-forwarded-for")
         if ip_address:
             ip_address = ip_address.split(",")[0]
         else:
             ip_address = request.client.host if request.client else "Unknown"
-            
+
         user_agent = request.headers.get("user-agent", "Unknown")
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        
+
         new_visitor = database.Visitor(
             ip_address=ip_address,
             user_agent=user_agent,
@@ -136,10 +138,10 @@ async def track_visit(request: Request, db: Session = Depends(database.get_db)):
 async def get_admin_visitors(current_user: database.User = Depends(auth.get_current_user), db: Session = Depends(database.get_db)):
     # Protected route to fetch visitor tracking data
     visitors = db.query(database.Visitor).order_by(database.Visitor.id.desc()).limit(100).all()
-    
+
     # Calculate some quick stats for the dashboard too
     total_views = db.query(database.Visitor).count()
-    
+
     return {
         "visitors": visitors,
         "total_views": total_views

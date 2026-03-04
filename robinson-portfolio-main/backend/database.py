@@ -14,11 +14,13 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
 
+
 class User(Base):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String, unique=True, index=True)
     hashed_password = Column(String)
+
 
 class Visitor(Base):
     __tablename__ = "visitors"
@@ -29,12 +31,14 @@ class Visitor(Base):
     page_visited = Column(String)
     timestamp = Column(String)
 
+
 def get_db():
     db = SessionLocal()
     try:
         yield db
     finally:
         db.close()
+
 
 def init_db():
     Base.metadata.create_all(bind=engine)
